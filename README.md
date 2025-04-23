@@ -51,6 +51,8 @@ hyperparams = {
     'convgc': False,             # Whether to use conv layer for GC layer
     'centers': None              # Optional Gaussian centers for convGC
 }
+```
+---
 
 ## Other Resources
 
