@@ -10,9 +10,13 @@ To develop and evaluate deep learning architectures that can predict the firing 
 
 ## 📁 Dataset
 
+Dataset used can be downloaded from: https://purl.stanford.edu/rk663dm5577
+
 - **Source:** `naturalscenes.h5`
 - **Description:** Contains grayscale natural scene patches and corresponding ganglion cell firing rate recordings.
 - **Input Shape:** (1, 50, 50) grayscale image patches.
+
+More about the dataset can be learnt from the preprocessing.ipynb. 
 
 ---
 
