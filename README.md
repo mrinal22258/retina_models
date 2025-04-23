@@ -51,3 +51,7 @@ hyperparams = {
     'convgc': False,             # Whether to use conv layer for GC layer
     'centers': None              # Optional Gaussian centers for convGC
 }
+
+## Other Resources
+
+PTH files for models and training results are available in this folder: https://drive.google.com/drive/folders/1lIV1FeJuX-xXpeN8xosY_GJCZQCxMWcK
