@@ -2,7 +2,7 @@
 
 This project focuses on predicting the firing rate of retinal ganglion cells in response to natural visual stimuli. We used the `naturalscenes.h5` dataset, which contains natural scene inputs and corresponding ganglion cell activity. Our approach leverages deep learning models tailored to the structure and behavior of biological neural systems.
 
-## 🧠 Objective
+## Objective
 
 To develop and evaluate deep learning architectures that can predict the firing rates of ganglion cells given natural image stimuli.
 
@@ -20,7 +20,7 @@ More about the dataset can be learnt from the preprocessing.ipynb.
 
 ---
 
-## 🧪 Models Implemented
+## Models Implemented
 
 ### 1. BNCNN
 A batch-normalized convolutional neural network that extracts spatial features from input patches. It applies multiple convolutional layers followed by batch normalization and activation.
