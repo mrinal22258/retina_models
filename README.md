@@ -13,23 +13,37 @@ To develop and evaluate deep learning architectures that can predict the firing 
 Dataset used can be downloaded from: https://purl.stanford.edu/rk663dm5577
 
 - **Source:** `naturalscenes.h5`
-- **Description:** Contains grayscale natural scene patches and corresponding ganglion cell firing rate recordings.
-- **Input Shape:** (1, 50, 50) grayscale image patches.
+- **Description**:  
+  Contains:
+  - Grayscale natural image patches (shape: `(1, 50, 50)`)
+  - Corresponding firing rates of 9 ganglion cells
+- **Preprocessing**:
+  - Normalized pixel intensities to [0,1]
+  - Split into train/validation/test using stratified sampling
+  - Performed EDA (see `eda.ipynb` and `eda2.ipynb`) to visualize stimulus-firing patterns and correlation among ganglion cells
 
-More about the dataset can be learnt from the eda.ipynb. 
 
 ---
 
 ## Models Implemented
 
 ### 1. BNCNN
-A batch-normalized convolutional neural network that extracts spatial features from input patches. It applies multiple convolutional layers followed by batch normalization and activation.
+- A **Batch-Normalized Convolutional Neural Network**
+- Captures spatial features in static image patches
+- **Architecture**:
+  - Conv → BatchNorm → ReLU → Conv → BatchNorm → ReLU → Linear → Output
+  - Optional: Softplus activation for biological realism
 
 ### 2. CNNBiLSTM
-Combines convolutional layers for feature extraction with a bidirectional LSTM layer to capture temporal dependencies or sequential correlations in the visual stimulus.
+- Extends spatial learning with **temporal awareness**
+- BiLSTM layer helps capture **sequence-based correlations** if image input is treated as temporal patches (optional)
+- Useful in mimicking memory-like behavior in biological systems
 
 ### 3. LinearStackedBNCNN
-A linear model stacked on top of BNCNN features to provide a simpler but potentially interpretable prediction mechanism.
+- Hybrid model:
+  - Feature extractor = frozen BNCNN
+  - Final layer = linear regression (or shallow MLP)
+- Balances interpretability with representational power
 
 ---
 
@@ -52,6 +66,17 @@ hyperparams = {
     'centers': None              # Optional Gaussian centers for convGC
 }
 ```
+---
+
+## 📈 Results Summary
+
+| Model                | Train Corr ↑ | Val Corr ↑ |
+|---------------------|--------------|------------|
+| **BNCNN**            | 0.5452       | 0.4813     | 
+| **LinearStackedBNCNN** | 0.5167    | 0.4820     |
+| **CNNBiLSTM**        | 0.5320       | 0.4728     |
+
+
 ---
 
 ## Other Resources
